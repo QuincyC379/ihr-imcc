@@ -1,0 +1,38 @@
+server:
+  port: 8082
+
+spring:
+  #数据源配置
+  datasource:
+    url: jdbc:postgresql://172.17.5.20:5432/xbs
+    username: dev_zhaopin
+    password: zhaopin123
+  #redis集群配置
+  redis:
+    cluster:
+      nodes:
+        - 172.17.5.110:6379
+        - 172.17.5.111:6379
+        - 172.17.5.112:6379
+        - 172.17.5.113:6379
+        - 172.17.5.114:6379
+        - 172.17.5.115:6379
+
+#Mybatis 日志
+logging:
+  level:
+    com.zhaopin.mapper: trace
+
+##本地模拟测试url
+#requestUrl: http://localhost:8080/test/imcc/insert
+
+##平台发送消息接口URL(QA)
+#requestUrl: http://172.17.6.22:9093/msgCenter/applies/0.2.0/sendMessage
+
+##平台发送消息接口URL(预上线)
+#sendMessageUrl: http://im.msg.zhaopin.com/msgCenter/applies/0.2.0/sendMessage
+PLATFORM_SEND_MESSAGE_URL: http://im.msg.zhaopin.com/msgCenter/applies/0.2.0/sendMessage
+
+##平台创建讨论组接口URL(预上线)
+#createDiscussionUrl: http://im.dis.zhaopin.com/discussionCenter/applies/0.2.0/createDiscussion
+PLATFORM_CREATE_DISCUSSION_URL: http://im.dis.zhaopin.com/discussionCenter/applies/0.2.0/createDiscussion
